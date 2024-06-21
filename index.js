@@ -152,8 +152,11 @@ const clock = {
       this.minutes === this.alarmTime.minutes &&
       this.seconds === this.alarmTime.seconds
     ) {
-      alert("Alarm!");
+      // if alarm is up show alarm notification
+      document.getElementById("alarm-notification").classList.remove("hidden");
+      //   alert("Alarm!");
       this.alarmTime = null; // reset alarm after it triggers
+      document.querySelector("#alarm-time").innerHTML = ""; // set alarm time to empty string
     }
   },
 
@@ -207,5 +210,11 @@ document.querySelector("#alarm-input").addEventListener("submit", (e) => {
   clock.setAlarm(hours, minutes, seconds);
   clock.closePopup();
 });
+
+document
+  .getElementById("close-notification-popup")
+  .addEventListener("click", () => {
+    document.getElementById("alarm-notification").classList.add("hidden");
+  });
 
 clock.updateButtons(); // Initialize button styles

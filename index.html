@@ -47,6 +47,31 @@
   <body
     class="w-screen h-screen overflow-hidden flex items-center justify-center box-border m-0 p-0"
   >
+    <!-- Pop up notification   -->
+    <!-- <div
+      class="notification-popup-container hidden index-10 absolute top-0 left-0 w-screen h-screen z-10 bg-black/50 backdrop-blur-[3px] p-8"
+    > -->
+    <div
+      id="alarm-notification"
+      class="absolute z-20 rounded-2xl bg-[#0b1918] hidden top-3 right-3 p-6 flex gap-4 justify-center items-center transition-all ease duration-200"
+    >
+      <img
+        src="/icons/alarm-clock-large.png"
+        class="w-10 animate-pulse"
+        alt="alarm"
+      />
+      <div>
+        <h1 class="font-bold mb-1">Time is up</h1>
+        <h6>Your alarm is due</h6>
+      </div>
+
+      <button class="-mt-7" id="close-notification-popup">
+        <img src="/icons/close-icon.png" class="size-5" alt="close" />
+      </button>
+    </div>
+    <!-- </div> -->
+    <!-- Pop up notification ends -->
+
     <!-- Pop up input container  -->
     <div
       class="popup-container hidden index-10 absolute top-0 left-0 w-screen h-screen z-10 bg-black/70 backdrop-blur-[2px] p-8"
