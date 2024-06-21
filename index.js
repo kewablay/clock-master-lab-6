@@ -1,6 +1,7 @@
 const clock = {
   is24HourFormat: true,
   alarmTime: null,
+  alarmSound: new Audio("alarm-sound.wav"), // Load the alarm sound
 
   updateClock() {
     const now = new Date();
@@ -26,25 +27,25 @@ const clock = {
     let period = this.hours >= 12 ? "PM" : "AM";
 
     const template = `
-          <div class="flex gap-4">
-              <!-- time -->
-              <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
-                <span style="color: var(--clr-orange)">${this.hours
-                  .toString()
-                  .padStart(2, "0")}</span> :
-                <span class="ml-1">${this.minutes
-                  .toString()
-                  .padStart(2, "0")}</span>
-              </h1>
+        <div class="flex gap-4">
+          <!-- time -->
+          <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
+            <span style="color: var(--clr-orange)">${this.hours
+              .toString()
+              .padStart(2, "0")}</span> :
+            <span class="ml-1">${this.minutes
+              .toString()
+              .padStart(2, "0")}</span>
+          </h1>
   
-              <!-- second and am-pm -->
-              <div class="space-y-0 shrink-0 w-10 items-center justify-center flex flex-col">
-                <p class="text-3xl font-bold text-[#949d9c]">${this.seconds
-                  .toString()
-                  .padStart(2, "0")}</p>
-                <p class="text-[#949d9c] font-bold">${period}</p>
-              </div>
+          <!-- second and am-pm -->
+          <div class="space-y-0 shrink-0 w-10 items-center justify-center flex flex-col">
+            <p class="text-3xl font-bold text-[#949d9c]">${this.seconds
+              .toString()
+              .padStart(2, "0")}</p>
+            <p class="text-[#949d9c] font-bold">${period}</p>
           </div>
+        </div>
       `;
 
     return template;
@@ -55,25 +56,25 @@ const clock = {
     let period = this.hours >= 12 ? "PM" : "AM";
 
     const template = `
-          <div class="flex gap-4">
-              <!-- time -->
-              <h1 class="text-7xl " style="font-family: var(--ff-Rubrik) ">
-                <span style="color: var(--clr-orange)">${hours
-                  .toString()
-                  .padStart(2, "0")}</span> :
-                <span class="ml-1">${this.minutes
-                  .toString()
-                  .padStart(2, "0")}</span>
-              </h1>
+        <div class="flex gap-4">
+          <!-- time -->
+          <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
+            <span style="color: var(--clr-orange)">${hours
+              .toString()
+              .padStart(2, "0")}</span> :
+            <span class="ml-1">${this.minutes
+              .toString()
+              .padStart(2, "0")}</span>
+          </h1>
   
-              <!-- second and am-pm -->
-              <div class="space-y-0 shrink-0 w-10 items-center justify-center  flex flex-col">
-                <p class="text-3xl font-bold text-[#949d9c]">${this.seconds
-                  .toString()
-                  .padStart(2, "0")}</p>
-                <p class="text-[#949d9c] font-bold">${period}</p>
-              </div>
+          <!-- second and am-pm -->
+          <div class="space-y-0 shrink-0 w-10 items-center justify-center flex flex-col">
+            <p class="text-3xl font-bold text-[#949d9c]">${this.seconds
+              .toString()
+              .padStart(2, "0")}</p>
+            <p class="text-[#949d9c] font-bold">${period}</p>
           </div>
+        </div>
       `;
     return template;
   },
@@ -130,19 +131,18 @@ const clock = {
   getAlarmTimeInput() {
     const alarmTimeInput = document.getElementById("alarm-time-input");
     const [hours, minutes] = alarmTimeInput.value.split(":").map(Number);
-    const seconds = 0; // Assuming seconds are always 0 for simplicity
+    const seconds = 0;
     return { hours, minutes, seconds };
   },
 
   setAlarm(hours, minutes, seconds) {
     this.alarmTime = { hours, minutes, seconds };
-    document.querySelector(
-      "#alarm-time"
-    ).innerHTML = `<p class="flex gap-2"> <img src="/icons/alarm-clock-orange.png" alt="alarm" /> ${hours
+    document.querySelector("#alarm-time").innerHTML = `<p class="flex gap-2">
+        <img src="/icons/alarm-clock-orange.png" alt="alarm" />
+        ${hours.toString().padStart(2, "0")}:${minutes
       .toString()
-      .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")} </p>`;
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}
+      </p>`;
   },
 
   checkAlarm() {
@@ -152,11 +152,11 @@ const clock = {
       this.minutes === this.alarmTime.minutes &&
       this.seconds === this.alarmTime.seconds
     ) {
-      // if alarm is up show alarm notification
+      // If alarm is up, show alarm notification and play sound
       document.getElementById("alarm-notification").classList.remove("hidden");
-      //   alert("Alarm!");
-      this.alarmTime = null; // reset alarm after it triggers
-      document.querySelector("#alarm-time").innerHTML = ""; // set alarm time to empty string
+      this.alarmSound.play(); // Play the alarm sound
+      this.alarmTime = null; // Reset alarm after it triggers
+      document.querySelector("#alarm-time").innerHTML = " "; // Set alarm time to empty string
     }
   },
 
@@ -170,7 +170,7 @@ const clock = {
     const button12hr = document.getElementById("button12hr");
     const button24hr = document.getElementById("button24hr");
 
-    // show the button which is currently active
+    // Show the button which is currently active
     if (this.is24HourFormat) {
       button24hr.classList.add("bg-[#142a29]");
       button24hr.classList.remove("text-[#949d9c]");
@@ -185,7 +185,7 @@ const clock = {
   },
 };
 
-clock.is24HourFormat = false; // Set initial format to 24-hour
+clock.is24HourFormat = false; // Set initial format to 12-hour
 clock.updateClock();
 setInterval(() => clock.updateClock(), 1000);
 
@@ -215,6 +215,8 @@ document
   .getElementById("close-notification-popup")
   .addEventListener("click", () => {
     document.getElementById("alarm-notification").classList.add("hidden");
+    clock.alarmSound.pause(); // Pause the alarm sound
+    clock.alarmSound.currentTime = 0; // Reset the sound to the beginning
   });
 
 clock.updateButtons(); // Initialize button styles
