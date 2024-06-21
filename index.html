@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google fonts Poppins  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google fonts Poppins end -->
+
+    <!-- Google fonts Rubrik moonstrocks  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google fonts Rubrik moonstrocks end -->
+
+    <style>
+      :root {
+        --clr-orange: #e06126;
+        --clr-gray: #949d9c;
+        --green-light: #142a29;
+        --dark-green: #0b1918;
+        --clr-bg: #182726;
+
+        --ff-Rubrik: "Rubik Moonrocks", sans-serif;
+        --ff-Popins: "Poppins", sans-serif;
+        --fs-400: 28px;
+      }
+      body {
+        background-color: var(--clr-bg);
+        color: white;
+        font-family: var(--ff-Popins);
+        letter-spacing: -1px;
+      }
+    </style>
+  </head>
+  <body
+    class="w-screen h-screen overflow-hidden flex items-center justify-center box-border m-0 p-0"
+  >
+    <!-- Clock Section  -->
+    <main>
+      <div class="flex flex-col gap-6 w-[25rem]">
+        <!-- title -->
+        <div
+          class="bg-[#0b1918] p-4 rounded-full flex justify-center items-center w-full gap-2 text-xl font-bold"
+        >
+          <img src="./icons/logo-icon.svg" alt="logo" />
+          <h2>Clock Master</h2>
+        </div>
+
+        <!-- main clock -->
+        <div
+          class="bg-[#0b1918] p-8 rounded-2xl w-full flex flex-col gap-8 items-center"
+        >
+          <!-- day and date    -->
+          <div class="space-y-2">
+            <h4
+              class="px-8 py-1 inline-block text-[#949d9c] rounded-full"
+              style="background: var(--green-light)"
+            >
+              Friday
+            </h4>
+            <p class="text-[#949d9c]">21st June 2024</p>
+          </div>
+
+          <!-- Clock time  -->
+          <div class="flex gap-4">
+            <!-- time -->
+            <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
+              <span style="color: var(--clr-orange)">12</span> :
+              <span class="ml-1">52</span>
+            </h1>
+
+            <!-- second and am-pm -->
+            <div class="space-y-0 items-center justify-center flex flex-col">
+              <p class="text-3xl font-bold text-[#949d9c]">30</p>
+              <p class="text-[#949d9c] font-bold">AM</p>
+            </div>
+          </div>
+          <!-- Clock time end -->
+
+          <!-- set alarm -->
+          <button
+            class="bg-[#263E3D] border border-[#565757] p-3 px-5 hover:bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-300"
+          >
+            <img src="/icons/alarm-clock-icon.png" alt="alarm" />
+            Set Alarm
+          </button>
+        </div>
+
+        <!-- time format -->
+        <div
+          class="bg-[#0b1918] p-4 rounded-full flex justify-center items-center w-full gap-2 text-sm font-bold"
+        >
+          <button class="py-2.5 w-1/2 bg-[#142a29] rounded-full">12 hr</button>
+          <button class="py-2.5 w-1/2 text-[#949d9c] rounded-full">
+            24 hr
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
