@@ -47,6 +47,27 @@
   <body
     class="w-screen h-screen overflow-hidden flex items-center justify-center box-border m-0 p-0"
   >
+    <!-- Pop up input container  -->
+    <!-- <div
+      class="index-10 absolute top-0 left-0 w-screen h-screen z-10 bg-black/50 backdrop-blur-[2px] p-8"
+    >
+      <form id="alarm-input " class="flex flex-row gap-2 mx-auto w-[20rem]">
+        <input
+          type="time"
+          name="alarm-time-input"
+          id="alarm-time-input"
+          class="text-black px-5 py-2 rounded-lg"
+        />
+        <button
+          class="bg-[#263E3D] border border-[#565757] p-3 px-5 hover:bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-300"
+        >
+          <img src="/icons/alarm-clock-icon.png" alt="alarm" />
+          Set Alarm
+        </button>
+      </form>
+    </div> -->
+    <!-- Pop up input container ends -->
+
     <!-- Clock Section  -->
     <main>
       <div class="flex flex-col gap-6 w-[25rem]">
@@ -79,20 +100,34 @@
           <!-- Clock time end -->
 
           <!-- set alarm -->
-          <button
+          <!-- <button
             class="bg-[#263E3D] border border-[#565757] p-3 px-5 hover:bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-300"
           >
             <img src="/icons/alarm-clock-icon.png" alt="alarm" />
             Set Alarm
-          </button>
+          </button> -->
+
+          <div>
+            <p id="alarm" class="text-[#949d9c] font-bold text-center">
+              GMT+5:30
+            </p>
+          </div>
         </div>
 
         <!-- time format -->
         <div
           class="bg-[#0b1918] p-4 rounded-full flex justify-center items-center w-full gap-2 text-sm font-bold"
         >
-          <button id="button12hr" class="py-2.5 w-1/2 bg-[#142a29] rounded-full">12 hr</button>
-          <button id="button24hr" class="py-2.5 w-1/2 text-[#949d9c] rounded-full">
+          <button
+            id="button12hr"
+            class="py-2.5 w-1/2 bg-[#142a29] rounded-full"
+          >
+            12 hr
+          </button>
+          <button
+            id="button24hr"
+            class="py-2.5 w-1/2 text-[#949d9c] rounded-full"
+          >
             24 hr
           </button>
         </div>

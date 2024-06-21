@@ -22,6 +22,9 @@ const clock = {
   },
 
   get24HourTime() {
+    let hours = this.hours % 12 || 12;
+    let period = this.hours >= 12 ? "PM" : "AM";
+
     const template = `
           <div class="flex gap-4">
               <!-- time -->
@@ -39,7 +42,7 @@ const clock = {
                 <p class="text-3xl font-bold text-[#949d9c]">${this.seconds
                   .toString()
                   .padStart(2, "0")}</p>
-                <p class="text-[#949d9c] font-bold">AM</p>
+                <p class="text-[#949d9c] font-bold">${period}</p>
               </div>
           </div>
       `;
