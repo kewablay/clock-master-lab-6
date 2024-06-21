@@ -65,7 +65,7 @@
           <!-- day and date    -->
           <div class="space-y-2">
             <h4
-              class="px-8 py-1 inline-block text-[#949d9c] rounded-full"
+              class="px-8 py-1 inline-block text-[#949d9c]  rounded-full"
               style="background: var(--green-light)"
             >
               Friday
@@ -74,18 +74,8 @@
           </div>
 
           <!-- Clock time  -->
-          <div class="flex gap-4">
-            <!-- time -->
-            <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
-              <span style="color: var(--clr-orange)">12</span> :
-              <span class="ml-1">52</span>
-            </h1>
-
-            <!-- second and am-pm -->
-            <div class="space-y-0 items-center justify-center flex flex-col">
-              <p class="text-3xl font-bold text-[#949d9c]">30</p>
-              <p class="text-[#949d9c] font-bold">AM</p>
-            </div>
+          <div id="clock">
+            
           </div>
           <!-- Clock time end -->
 
@@ -108,6 +98,10 @@
           </button>
         </div>
       </div>
+      <div id="clock"></div>
     </main>
+
+    <!-- js -->
+    <script src="index.js"></script>
   </body>
 </html>
