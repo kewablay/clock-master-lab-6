@@ -185,7 +185,7 @@ const clock = {
   },
 };
 
-clock.is24HourFormat = true; // Set initial format to 24-hour
+clock.is24HourFormat = false; // Set initial format to 24-hour
 clock.updateClock();
 setInterval(() => clock.updateClock(), 1000);
 
