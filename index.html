@@ -65,18 +65,17 @@
           <!-- day and date    -->
           <div class="space-y-2">
             <h4
-              class="px-8 py-1 inline-block text-[#949d9c]  rounded-full"
+              class="px-8 py-1 inline-block text-[#949d9c] rounded-full"
               style="background: var(--green-light)"
+              id="day"
             >
-              Friday
+              <!-- Friday -->
             </h4>
-            <p class="text-[#949d9c]">21st June 2024</p>
+            <p id="date" class="text-[#949d9c]"></p>
           </div>
 
           <!-- Clock time  -->
-          <div id="clock">
-            
-          </div>
+          <div id="clock"></div>
           <!-- Clock time end -->
 
           <!-- set alarm -->
@@ -92,13 +91,12 @@
         <div
           class="bg-[#0b1918] p-4 rounded-full flex justify-center items-center w-full gap-2 text-sm font-bold"
         >
-          <button class="py-2.5 w-1/2 bg-[#142a29] rounded-full">12 hr</button>
-          <button class="py-2.5 w-1/2 text-[#949d9c] rounded-full">
+          <button id="button12hr" class="py-2.5 w-1/2 bg-[#142a29] rounded-full">12 hr</button>
+          <button id="button24hr" class="py-2.5 w-1/2 text-[#949d9c] rounded-full">
             24 hr
           </button>
         </div>
       </div>
-      <div id="clock"></div>
     </main>
 
     <!-- js -->
