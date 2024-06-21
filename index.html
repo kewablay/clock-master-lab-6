@@ -49,11 +49,13 @@
   >
     <!-- Pop up input container  -->
     <div
-      class="index-10 absolute top-0 left-0 w-screen h-screen z-10 bg-black/70 backdrop-blur-[2px] p-8"
+      class="popup-container hidden index-10 absolute top-0 left-0 w-screen h-screen z-10 bg-black/70 backdrop-blur-[2px] p-8"
     >
-      <h1 class="text-xl  text-center mb-4">Select the time for your alarm</h1>
-      <button class="absolute top-3 right-3"><img src="/icons/close-icon.png" alt=""></button>
-      <form id="alarm-input " class="grid grid-cols-5 gap-2 mx-auto w-[25rem]">
+      <h1 class="text-xl text-center mb-4">Select the time for your alarm</h1>
+      <button class="absolute top-3 right-3" id="close-popup">
+        <img src="/icons/close-icon.png" alt="" />
+      </button>
+      <form id="alarm-input" class="grid grid-cols-5 gap-2 mx-auto w-[25rem]">
         <input
           type="time"
           name="alarm-time-input"
@@ -62,6 +64,7 @@
         />
 
         <button
+          type="submit"
           class="col-span-2 border border-[#565757] hover:brightness-150 p-3 px-5 bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-200"
         >
           <img src="/icons/alarm-clock-icon.png" alt="alarm" />
@@ -102,19 +105,27 @@
           <div id="clock"></div>
           <!-- Clock time end -->
 
+          <!-- Time an a alarm is set for  -->
+          <div
+            id="alarm-time"
+            class="text-[#e06126] leading-5 text-center"
+          ></div>
+          <!-- Time an a alarm is set for  -->
+
           <!-- set alarm -->
-          <!-- <button
+          <button
+            id="set-alarm-btn"
             class="bg-[#263E3D] border border-[#565757] p-3 px-5 hover:bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-300"
           >
             <img src="/icons/alarm-clock-icon.png" alt="alarm" />
             Set Alarm
-          </button> -->
+          </button>
 
-          <div>
+          <!-- <div>
             <p id="alarm" class="text-[#949d9c] font-bold text-center">
               GMT+5:30
             </p>
-          </div>
+          </div> -->
         </div>
 
         <!-- time format -->

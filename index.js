@@ -117,13 +117,32 @@ const clock = {
     }
   },
 
+  openPopup() {
+    console.log("opening popup");
+    document.querySelector(".popup-container").classList.remove("hidden");
+  },
+
+  closePopup() {
+    console.log("closing popup");
+    document.querySelector(".popup-container").classList.add("hidden");
+  },
+
+  getAlarmTimeInput() {
+    const alarmTimeInput = document.getElementById("alarm-time-input");
+    const [hours, minutes] = alarmTimeInput.value.split(":").map(Number);
+    const seconds = 0; // Assuming seconds are always 0 for simplicity
+    return { hours, minutes, seconds };
+  },
+
   setAlarm(hours, minutes, seconds) {
     this.alarmTime = { hours, minutes, seconds };
-    console.log(
-      `Alarm set for ${hours.toString().padStart(2, "0")}:${minutes
-        .toString()
-        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
-    );
+    document.querySelector(
+      "#alarm-time"
+    ).innerHTML = `<p class="flex gap-2"> <img src="/icons/alarm-clock-orange.png" alt="alarm" /> ${hours
+      .toString()
+      .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")} </p>`;
   },
 
   checkAlarm() {
@@ -173,5 +192,20 @@ document
 document
   .getElementById("button24hr")
   .addEventListener("click", () => clock.toggleFormat("24hr"));
+
+document
+  .querySelector("#close-popup")
+  .addEventListener("click", () => clock.closePopup());
+
+document
+  .querySelector("#set-alarm-btn")
+  .addEventListener("click", () => clock.openPopup());
+
+document.querySelector("#alarm-input").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const { hours, minutes, seconds } = clock.getAlarmTimeInput();
+  clock.setAlarm(hours, minutes, seconds);
+  clock.closePopup();
+});
 
 clock.updateButtons(); // Initialize button styles
