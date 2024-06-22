@@ -137,12 +137,22 @@ const clock = {
 
   setAlarm(hours, minutes, seconds) {
     this.alarmTime = { hours, minutes, seconds };
-    document.querySelector("#alarm-time").innerHTML = `<p class="flex gap-2">
-        <img src="/icons/alarm-clock-orange.png" alt="alarm" />
-        ${hours.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}
-      </p>`;
+    let formattedTime;
+    if (this.is24HourFormat) {
+      formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    } else {
+      let period = hours >= 12 ? "PM" : "AM";
+      let displayHours = hours % 12 || 12;
+      formattedTime = `${displayHours.toString().padStart(2, "0")}:${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")} ${period}`;
+    }
+
+    document.querySelector(
+      "#alarm-time"
+    ).innerHTML = `<p class="flex gap-2"> <img src="/icons/alarm-clock-orange.png" alt="alarm" /> ${formattedTime} </p>`;
   },
 
   checkAlarm() {
