@@ -23,11 +23,19 @@ const clock = {
   },
 
   get24HourTime() {
+    const timezone = document.getElementById("timezone");
+
+    let hours = this.hours;
+
+    if (timezone.value) {
+      hours = eval(hours + +timezone.value);
+    }
+
     const template = `
         <div class="flex gap-4">
           <!-- time -->
           <h1 class="text-6xl sm:text-7xl" style="font-family: var(--ff-Rubrik)">
-            <span style="color: var(--clr-orange)">${this.hours
+            <span style="color: var(--clr-orange)">${hours
               .toString()
               .padStart(2, "0")}</span> :
             <span class="ml-1">${this.minutes
@@ -49,8 +57,14 @@ const clock = {
   },
 
   get12HourTime() {
+    const timezone = document.getElementById("timezone");
+
     let hours = this.hours % 12 || 12;
     let period = this.hours >= 12 ? "PM" : "AM";
+
+    if (timezone.value) {
+      hours = eval(hours + +timezone.value);
+    }
 
     const template = `
         <div class="flex gap-4">
