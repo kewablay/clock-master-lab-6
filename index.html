@@ -53,7 +53,7 @@
     > -->
     <div
       id="alarm-notification"
-      class="absolute z-20  border border-[#565757] rounded-2xl bg-[#0b1918] hidden top-3 right-3 p-6 flex gap-4 justify-center items-center transition-all ease duration-200"
+      class="absolute z-20 border border-[#565757] rounded-2xl bg-[#0b1918] hidden top-3 right-3 p-6 flex gap-4 justify-center items-center transition-all ease duration-200"
     >
       <img
         src="/icons/alarm-clock-large.png"
@@ -80,17 +80,20 @@
       <button class="absolute top-3 right-3" id="close-popup">
         <img src="/icons/close-icon.png" alt="" />
       </button>
-      <form id="alarm-input" class="grid grid-cols-5 gap-2 mx-auto w-[25rem]">
+      <form
+        id="alarm-input"
+        class="grid grid-cols-2 sm:grid-cols-5 gap-2 mx-auto w-[25rem]"
+      >
         <input
           type="time"
           name="alarm-time-input"
           id="alarm-time-input"
-          class="text-black px-5 py-2 rounded-lg col-span-3"
+          class="text-black px-5 py-2 rounded-lg col-span-1 sm:col-span-3"
         />
 
         <button
           type="submit"
-          class="col-span-2 border border-[#565757] hover:brightness-150 p-3 px-5 bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-200"
+          class="flex items-center justify-center col-span-1 sm:col-span-2 border border-[#565757] hover:brightness-150 p-3 px-5 bg-[#e06126] rounded-xl text-white font-bold flex items-center gap-2 trasition-all ease duration-200"
         >
           <img src="/icons/alarm-clock-icon.png" alt="alarm" />
           Set Alarm
