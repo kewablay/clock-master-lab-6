@@ -82,7 +82,7 @@
       </button>
       <form
         id="alarm-input"
-        class="grid  sm:grid-cols-5 gap-2 mx-auto w-full sm:w-[25rem]"
+        class="grid sm:grid-cols-5 gap-2 mx-auto w-full sm:w-[25rem]"
       >
         <input
           type="time"
@@ -105,14 +105,40 @@
 
     <!-- Clock Section  -->
     <main>
-      <div class="flex flex-col gap-6 w-[100%] sm:w-[25rem]">
+      <div class="flex flex-col gap-5 w-[100%] sm:w-[25rem]">
         <!-- title -->
-        <div
+        <!-- <div
           class="bg-[#0b1918] p-4 rounded-full flex justify-center items-center w-full gap-2 text-xl font-bold"
         >
           <img src="./icons/logo-icon.svg" alt="logo" />
           <h2>Clock Master</h2>
+        </div> -->
+
+        <!-- timezone input  -->
+        <!-- Add this inside your main clock section -->
+        <div class="flex justify-center items-center gap-2 mt-4">
+          <!-- <label for="timezone" class="text-white font-bold"
+            >Select Timezone:</label
+          > -->
+          <select
+            id="timezone"
+            class="p-2 rounded-full bg-[#0b1918]  text-[#949d9c] px-5 w-full py-4"
+          >
+            <option value="-08:00">UTC-08:00 — PST</option>
+            <option value="-06:00">UTC-06:00 — CST</option>
+            <option value="-05:00">UTC-05:00 — EST</option>
+            <option value="+00:00">UTC+00:00 — GMT/WET</option>
+            <option value="+01:00">UTC+01:00 — CET</option>
+            <option value="+02:00">UTC+02:00 — EET</option>
+            <option value="+03:00">UTC+03:00 — MSK/EAT</option>
+            <option value="+05:30">UTC+05:30 — IST</option>
+            <option value="+08:00">UTC+08:00 — CST</option>
+            <option value="+09:00">UTC+09:00 — JST/KST</option>
+            <option value="+10:00">UTC+10:00 — AEST</option>
+          </select>
         </div>
+
+        <!-- timezone input ends  -->
 
         <!-- main clock -->
         <div
