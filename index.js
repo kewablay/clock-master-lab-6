@@ -27,7 +27,7 @@ const clock = {
     const template = `
         <div class="flex gap-4">
           <!-- time -->
-          <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
+          <h1 class="text-6xl sm:text-7xl" style="font-family: var(--ff-Rubrik)">
             <span style="color: var(--clr-orange)">${this.hours
               .toString()
               .padStart(2, "0")}</span> :
@@ -56,7 +56,7 @@ const clock = {
     const template = `
         <div class="flex gap-4">
           <!-- time -->
-          <h1 class="text-7xl" style="font-family: var(--ff-Rubrik)">
+          <h1 class="text-6xl sm:text-7xl" style="font-family: var(--ff-Rubrik)">
             <span style="color: var(--clr-orange)">${hours
               .toString()
               .padStart(2, "0")}</span> :
