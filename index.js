@@ -33,30 +33,12 @@ const clock = {
   },
 
   get24HourTime() {
-<<<<<<< HEAD
     let color = document.getElementById("color")
     const template = `
         <div class="flex gap-4">
           <!-- time -->
           <h1 id="hoursMin" class="text-6xl sm:text-7xl" style="font-family: var(--ff-Rubrik)">
             <span >${this.hours.toString().padStart(2, "0")}</span> :
-=======
-    const timezone = document.getElementById("timezone");
-
-    let hours = this.hours;
-
-    if (timezone.value) {
-      hours = eval(hours + +timezone.value);
-    }
-
-    const template = `
-        <div class="flex gap-4">
-          <!-- time -->
-          <h1 class="text-6xl sm:text-7xl" style="font-family: var(--ff-Rubrik)">
-            <span style="color: var(--clr-orange)">${hours
-              .toString()
-              .padStart(2, "0")}</span> :
->>>>>>> feature/timezone
             <span class="ml-1">${this.minutes
               .toString()
               .padStart(2, "0")}</span>
@@ -76,20 +58,9 @@ const clock = {
   },
 
   get12HourTime() {
-<<<<<<< HEAD
     let color = document.getElementById("color")
     let hours = this.hours % 12 || 12
     let period = this.hours >= 12 ? "PM" : "AM"
-=======
-    const timezone = document.getElementById("timezone");
-
-    let hours = this.hours % 12 || 12;
-    let period = this.hours >= 12 ? "PM" : "AM";
->>>>>>> feature/timezone
-
-    if (timezone.value) {
-      hours = eval(hours + +timezone.value);
-    }
 
     const template = `
         <div class="flex gap-4">
