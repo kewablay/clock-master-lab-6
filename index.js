@@ -62,6 +62,7 @@ const clock = {
     let hours = this.hours % 12 || 12;
     let period = this.hours >= 12 ? "PM" : "AM";
 
+
     if (timezone.value) {
       hours = eval(hours + +timezone.value);
     }
