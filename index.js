@@ -1,7 +1,7 @@
 const clock = {
   is24HourFormat: true,
   alarmTime: null,
-  alarmSound: new Audio("alarm-sound.wav"), // Load the alarm sound
+  alarmSound: new Audio("tryme.mp3"), // Load the alarm sound
 
   updateClock() {
     const now = new Date();
@@ -23,7 +23,6 @@ const clock = {
   },
 
   get24HourTime() {
-
     const template = `
         <div class="flex gap-4">
           <!-- time -->
