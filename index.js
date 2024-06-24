@@ -58,9 +58,15 @@ const clock = {
   },
 
   get12HourTime() {
-    let color = document.getElementById("color")
-    let hours = this.hours % 12 || 12
-    let period = this.hours >= 12 ? "PM" : "AM"
+    const timezone = document.getElementById("timezone");
+
+    let hours = this.hours % 12 || 12;
+    let period = this.hours >= 12 ? "PM" : "AM";
+
+
+    if (timezone.value) {
+      hours = eval(hours + +timezone.value);
+    }
 
     const template = `
         <div class="flex gap-4">
